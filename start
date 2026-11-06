@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+# ./start  -> bật server nhạc + tunnel (lần đầu tự cài chạy-khi-bật-máy bằng systemd)
+cd "$(dirname "$0")"
+if [ ! -f "$HOME/.config/systemd/user/notes-music.service" ]; then
+  echo "🧸 Lần đầu: cài tự khởi động..."
+  bash scripts/install-autostart.sh
+else
+  pkill -f "python3? app.py" 2>/dev/null; pkill -f "cloudflared.*tunnel.*run" 2>/dev/null   # bản chạy tay cũ (nếu có)
+  systemctl --user daemon-reload
+  systemctl --user enable --now notes-music notes-tunnel >/dev/null 2>&1
+  systemctl --user restart notes-music notes-tunnel
+fi
+echo "⏳ Đợi server lên..."
+for _ in $(seq 1 30); do
+  code=$(curl -s -o /dev/null -w "%{http_code}" --max-time 5 https://notes.youv.dev/login.html)
+  [ "$code" = "200" ] && break
+  sleep 2
+done
+systemctl --user --no-pager --lines=0 status notes-music notes-tunnel | grep -E "●|Active"
+if [ "$code" = "200" ]; then echo "✅ Đang chạy: https://notes.youv.dev"; else echo "⚠️  Chưa vào được web, xem: ./logs"; fi

@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#fbf1e6">
+<title>Đăng nhập · Notes</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 120'><circle cx='28' cy='30' r='18' fill='%23c98657'/><circle cx='92' cy='30' r='18' fill='%23c98657'/><ellipse cx='60' cy='66' rx='46' ry='42' fill='%23d9a072'/><ellipse cx='60' cy='80' rx='20' ry='15' fill='%23f7dfc6'/><ellipse cx='60' cy='73' rx='7' ry='5' fill='%235a3a2a'/><circle cx='42' cy='58' r='5' fill='%233d2418'/><circle cx='78' cy='58' r='5' fill='%233d2418'/></svg>">
+<style>
+  :root { --bg:#fbf1e6; --panel:#fffaf4; --line:#efdcc8; --text:#5a3a2a; --muted:#a6836c; --accent:#c98657; --pink:#ff8fab; }
+  * { box-sizing: border-box; }
+  body {
+    margin:0; min-height:100vh; display:grid; place-items:center; padding:16px; color:var(--text);
+    background: radial-gradient(circle at 20% 10%, #ffe1ea 0, transparent 40%), radial-gradient(circle at 85% 90%, #f6d9bd 0, transparent 45%), var(--bg);
+    font: 15px/1.5 "Nunito", "Quicksand", ui-rounded, "SF Pro Rounded", "Segoe UI", system-ui, sans-serif;
+  }
+  .box { background:var(--panel); border:2px solid var(--line); border-radius:30px; padding:34px 30px 28px; max-width:380px; width:100%; text-align:center; box-shadow:0 20px 50px rgba(150,95,55,.18); position:relative; }
+  .bear { width:150px; height:150px; margin:-110px auto 0; display:block; animation: bob 1.6s ease-in-out infinite alternate; transform-origin:50% 90%; filter: drop-shadow(0 8px 12px rgba(150,95,55,.25)); }
+  @keyframes bob { from { transform: rotate(-5deg); } to { transform: rotate(5deg) translateY(-4px); } }
+  .bear { position:relative; }
+  .bear img { position:absolute; inset:0; width:100%; height:100%; object-fit:contain; transition:opacity .3s, transform .3s; }
+  .bear .b-shy { opacity:0; transform:scale(.85); }
+  .bear.peek .b-wave { opacity:0; transform:scale(.85); } .bear.peek .b-shy { opacity:1; transform:none; }   /* gấu nhắm mắt ngủ khi bạn gõ mật khẩu, không nhìn trộm */
+  .hint { display:none; margin-top:10px; font-size:13px; color:var(--muted); font-weight:700; }
+  .deco { position:fixed; width:44px; opacity:.9; animation: floaty 4s ease-in-out infinite; pointer-events:none; }
+  @keyframes floaty { 0%,100% { transform: translateY(0) rotate(-8deg); } 50% { transform: translateY(-10px) rotate(8deg); } }
+  h1 { font-size:26px; margin:0 0 4px; font-weight:900; color:var(--accent); }
+  p { color:var(--muted); margin:0 0 22px; font-weight:700; }
+  a.btn { display:inline-flex; align-items:center; gap:10px; background:#fff; color:#3c2a20; text-decoration:none; padding:12px 22px; border-radius:999px; font-weight:800; border:2px solid var(--line); transition:.15s; }
+  a.btn:hover { transform: translateY(-2px); box-shadow:0 8px 18px rgba(150,95,55,.18); }
+  .err { color:#e05a6a; margin-top:16px; font-weight:800; }
+  .pw { display:flex; flex-wrap:wrap; gap:8px; margin-top:8px; }
+  .sep { width:100%; color:var(--muted); margin:16px 0 8px; font-size:13px; font-weight:700; }
+  .pw input { flex:1; min-width:0; padding:11px 16px; border-radius:999px; border:2px solid var(--line); background:#fffdf9; color:var(--text); outline:none; font:inherit; font-weight:700; }
+  .pw input:focus { border-color:var(--pink); }
+  .pw button { padding:11px 20px; border-radius:999px; border:0; background:var(--accent); color:#fff; font:inherit; font-weight:900; cursor:pointer; transition:.15s; }
+  .pw button:hover { transform: scale(1.05); }
+  .paws { margin-top:18px; color:var(--line); font-size:18px; letter-spacing:6px; }
+</style>
+</head>
+<body>
+<div class="box">
+  <div class="bear" id="bear"><img class="b-wave" src="/img/bear_wave.webp" alt=""><img class="b-shy" src="/img/bear_sleep.webp" alt=""></div>
+  <h1>Notes</h1>
+  <p>Đăng nhập để nghe playlist YouTube cùng gấu nha 🎧</p>
+  <a class="btn" href="/auth/login">
+    <svg width="18" height="18" viewBox="0 0 48 48"><path fill="#EA4335" d="M24 9.5c3.5 0 6.6 1.2 9.1 3.6l6.8-6.8C35.8 2.4 30.3 0 24 0 14.6 0 6.6 5.4 2.7 13.2l7.9 6.2C12.5 13.6 17.8 9.5 24 9.5z"/><path fill="#4285F4" d="M46.5 24.5c0-1.6-.1-3.1-.4-4.5H24v9h12.7c-.6 2.9-2.2 5.4-4.7 7.1l7.6 5.9c4.4-4.1 6.9-10.1 6.9-17.5z"/><path fill="#FBBC05" d="M10.6 28.6A14.5 14.5 0 0 1 9.5 24c0-1.6.3-3.2.8-4.6l-7.9-6.2A24 24 0 0 0 0 24c0 3.9.9 7.5 2.6 10.8l8-6.2z"/><path fill="#34A853" d="M24 48c6.5 0 11.9-2.1 15.9-5.8l-7.6-5.9c-2.1 1.4-4.9 2.3-8.3 2.3-6.2 0-11.5-4.1-13.4-9.8l-8 6.2C6.6 42.6 14.6 48 24 48z"/></svg>
+    Đăng nhập bằng Google
+  </a>
+  <form method="post" action="/auth/password" class="pw">
+    <div class="sep">hoặc</div>
+    <input type="password" name="password" placeholder="Mật khẩu bí mật 🤫" required>
+    <button>Vào</button>
+  </form>
+  <div class="err" id="err"></div>
+  <div class="hint" id="hint"></div>
+  <div class="paws">🐾 🐾 🐾</div>
+</div>
+<img class="deco" src="/img/fluent/cherry_blossom_3d.png" style="top:8%;left:8%" alt="">
+<img class="deco" src="/img/fluent/musical_notes_3d.png" style="top:16%;right:10%;animation-delay:-1s" alt="">
+<img class="deco" src="/img/fluent/honey_pot_3d.png" style="bottom:12%;left:12%;animation-delay:-2s" alt="">
+<img class="deco" src="/img/fluent/sparkling_heart_3d.png" style="bottom:18%;right:9%;animation-delay:-3s" alt="">
+<script>
+const e = new URLSearchParams(location.search).get('error');
+const msg = { forbidden: 'Tài khoản này không được phép vào nhà gấu.', state: 'Phiên đăng nhập hết hạn, thử lại nha.',
+              token: 'Không lấy được token từ Google.', password: 'Sai mật khẩu rồi 🥺', access_denied: 'Bạn đã từ chối cấp quyền.' };
+if (e) document.getElementById('err').textContent = msg[e] || ('Lỗi: ' + e);
+const pw = document.querySelector('.pw input'), bear = document.getElementById('bear');
+pw.addEventListener('focus', () => bear.classList.add('peek'));
+pw.addEventListener('blur', () => bear.classList.remove('peek'));
+fetch('/auth/config').then(r => r.json()).then(c => {
+  if (c.logged_in) { location.replace('/'); return; }   // còn phiên đăng nhập -> vào thẳng
+  if (c.google && c.hint) {                               // nhớ tài khoản lần trước -> 1 chạm
+    document.querySelector('a.btn').lastChild.textContent = ' Tiếp tục với ' + c.hint;
+    const h = document.getElementById('hint'); h.style.display = 'block';
+    h.innerHTML = 'Không phải bạn? <a href="#" id="other">Dùng tài khoản khác</a>';
+    document.getElementById('other').onclick = ev => { ev.preventDefault(); location.href = '/auth/login?other=1'; };
+  }
+  if (!c.google) { document.querySelector('a.btn').hidden = true; document.querySelector('.sep').hidden = true; }
+  if (!c.password) document.querySelector('form.pw').hidden = true;
+}).catch(() => {});
+</script>
+</body>
+</html>

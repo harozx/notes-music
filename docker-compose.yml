@@ -1,0 +1,44 @@
+# Chạy app + Cloudflare Tunnel bằng Docker.
+#   1. cp .env.example .env  và điền giá trị
+#   2. Tạo tunnel trên dashboard Cloudflare (Zero Trust → Networks → Tunnels),
+#      Public hostname trỏ tới http://app:8000, chép token vào TUNNEL_TOKEN trong .env
+#   3. docker compose up -d --build
+services:
+  app:
+    build: .
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      HOST: 0.0.0.0
+      PORT: 8000
+      CACHE_DIR: /data/cache
+      DATA_DIR: /data
+      REDIS_URL: redis://redis:6379/0
+    volumes:
+      - music-data:/data
+    depends_on:
+      - redis
+    # bỏ comment nếu muốn truy cập trực tiếp không qua tunnel
+    # ports:
+    #   - "8000:8000"
+
+  # L2 cache dùng chung (kết quả tìm kiếm, radio, playlist, link audio). Redis chết thì app tự dùng SQLite.
+  redis:
+    image: redis:7-alpine
+    restart: unless-stopped
+    command: redis-server --save 300 10 --maxmemory 256mb --maxmemory-policy allkeys-lru
+    volumes:
+      - redis-data:/data
+
+  tunnel:
+    image: cloudflare/cloudflared:2026.10.0
+    restart: unless-stopped
+    command: tunnel --no-autoupdate run
+    environment:
+      TUNNEL_TOKEN: ${TUNNEL_TOKEN}
+    depends_on:
+      - app
+
+volumes:
+  music-data:
+  redis-data:

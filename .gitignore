@@ -1,0 +1,13 @@
+.venv/
+cache/
+__pycache__/
+cookies.txt
+.env
+server.log
+data/
+bin/
+.venv-linux/
+.env.*
+!.env.example
+*.log
+backup_before_bear/
