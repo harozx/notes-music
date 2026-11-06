@@ -1,0 +1,28 @@
+/* Gấu sữa: theme mặc định, khai báo ĐẦY ĐỦ mọi biến màu. Theme mới chép từ file này. */
+:root, [data-theme="milk"] {
+  --bg: #fbf1e6;
+  --bg-2: #f7e6d4;
+  --panel: #fffaf4;
+  --panel-2: #f8ebdd;
+  --hover: #f3dfca;
+  --line: #efdcc8;
+  --text: #5a3a2a;
+  --muted: #a6836c;
+  --accent: #c98657;          /* lông gấu caramel */
+  --accent-2: #e3a878;
+  --accent-ink: #fffaf4;
+  --pink: #ff8fab;            /* má hồng */
+  --pink-soft: #ffd6e0;
+  --danger: #e86a6a;
+  --shadow: 0 10px 30px rgba(150, 95, 55, .14);
+  --shadow-sm: 0 4px 14px rgba(150, 95, 55, .12);
+  --range-track: #ecd6c1;
+  --range-buf: #e2c4a8;
+  --ok: #3a9a6a;
+  --scrim: rgba(60, 35, 20, .4);
+  --tint: 150, 95, 55;                      /* màu bóng đổ, dạng R, G, B */
+  --cover-foryou: linear-gradient(135deg, #ffd1dc, #f6c89f);
+  --field: #fffdf9;                         /* nền ô nhập trang đăng nhập */
+  --glow-1: #ffe1ea;                        /* 2 vệt sáng nền trang đăng nhập */
+  --glow-2: #f6d9bd;
+}

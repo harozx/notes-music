@@ -1,13 +1,17 @@
-.venv/
-cache/
-__pycache__/
-cookies.txt
+# Bí mật: không bao giờ commit
 .env
-server.log
-data/
-bin/
-.venv-linux/
 .env.*
 !.env.example
+cookies.txt
+data/
+
+# Tạo ra khi chạy
+cache/
+bin/
+backup_*/
 *.log
-backup_before_bear/
+
+# Môi trường Python
+.venv/
+.venv-linux/
+__pycache__/

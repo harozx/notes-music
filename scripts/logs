@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# scripts/logs -> xem log trực tiếp (Ctrl+C để thoát)
+cd "$(dirname "$0")/.."
+tail -n 30 -f server.log tunnel.log

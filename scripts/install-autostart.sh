@@ -57,7 +57,7 @@ WantedBy=default.target
 EOF
 
 # tắt các bản đang chạy kiểu cũ (nohup / chạy tay) để khỏi tranh cổng 8000
-pkill -f "python3? app.py" 2>/dev/null || true
+pkill -f "python3? (app.py|-m notes)" 2>/dev/null || true
 pkill -f "cloudflared.*tunnel.*run" 2>/dev/null || true
 sleep 1
 

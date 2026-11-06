@@ -1,5 +1,0 @@
-#!/usr/bin/env bash
-# ./stop -> tắt server nhạc + tunnel (vẫn tự chạy lại khi bật máy; muốn bỏ hẳn: bash scripts/install-autostart.sh --uninstall)
-systemctl --user stop notes-tunnel notes-music 2>/dev/null
-pkill -f "python3? app.py" 2>/dev/null; pkill -f "cloudflared.*tunnel.*run" 2>/dev/null
-echo "🛑 Đã tắt"

@@ -4,4 +4,4 @@ cd "$(dirname "$0")/.."
 PY=.venv-linux/bin/python
 [ -x "$PY" ] || PY=$(command -v python3)
 export PYTHONUNBUFFERED=1
-exec "$PY" app.py
+exec "$PY" -m notes

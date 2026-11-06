@@ -32,7 +32,7 @@ $trigger = New-ScheduledTaskTrigger -AtLogOn -User $env:USERNAME
 $settings = New-ScheduledTaskSettingsSet -AllowStartIfOnBatteries -DontStopIfGoingOnBatteries `
     -ExecutionTimeLimit 0 -RestartCount 999 -RestartInterval (New-TimeSpan -Minutes 1) -StartWhenAvailable
 $serverAction = New-ScheduledTaskAction -Execute "$root\.venv\Scripts\pythonw.exe" `
-    -Argument "`"$root\app.py`"" -WorkingDirectory $root
+    -Argument "-m notes" -WorkingDirectory $root
 Register-ScheduledTask -TaskName "MusicServer" -Action $serverAction -Trigger $trigger -Settings $settings -Force | Out-Null
 Write-Host "[ok] Task MusicServer"
 
@@ -55,7 +55,7 @@ if ($cf -and (Test-Path $cfg)) {
 Get-ScheduledTask Music* | ForEach-Object { Stop-ScheduledTask $_.TaskName }
 # pythonw của venv chỉ là launcher, tiến trình Python con vẫn giữ cổng -> tắt hẳn
 Get-CimInstance Win32_Process -Filter "Name='pythonw.exe' OR Name='python.exe'" |
-    Where-Object { $_.CommandLine -like "*$root\app.py*" } |
+    Where-Object { $_.CommandLine -like "*-m notes*" } |
     ForEach-Object { Stop-Process -Id $_.ProcessId -Force -ErrorAction SilentlyContinue }
 Get-Process cloudflared -ErrorAction SilentlyContinue | Stop-Process -Force
 Start-Sleep 2

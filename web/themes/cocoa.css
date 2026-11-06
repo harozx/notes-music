@@ -1,0 +1,25 @@
+/* Gấu cacao: theme tối. Biến không khai báo ở đây sẽ lấy từ milk.css. */
+[data-theme="cocoa"] {
+  --bg: #241a15;
+  --bg-2: #2d211b;
+  --panel: #30241e;
+  --panel-2: #3a2c24;
+  --hover: #46352b;
+  --line: #4a382d;
+  --text: #f8e9dc;
+  --muted: #c4a58f;
+  --accent: #e3a273;
+  --accent-2: #f0bf93;
+  --accent-ink: #2a1c14;
+  --pink: #ff9fb8;
+  --pink-soft: #5a3540;
+  --shadow: 0 10px 30px rgba(0,0,0,.35);
+  --shadow-sm: 0 4px 14px rgba(0,0,0,.3);
+  --range-track: #4e3c31;
+  --range-buf: #67503f;
+  --ok: #8fd8ae;
+  --cover-foryou: linear-gradient(135deg, #7a4652, #7a5236);
+  --field: #3a2c24;
+  --glow-1: #4a2f35;
+  --glow-2: #4a3626;
+}

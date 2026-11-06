@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
-# ./status -> xem tình trạng server + tunnel + web
+# scripts/status -> xem tình trạng server + tunnel + web
 systemctl --user --no-pager --lines=0 status notes-music notes-tunnel | grep -E "●|Active"
 curl -s -o /dev/null -w "🌐 https://notes.youv.dev -> HTTP %{http_code}\n" --max-time 8 https://notes.youv.dev/login.html

@@ -9,8 +9,8 @@ COPY --from=denoland/deno:bin-2.5.6 /deno /usr/local/bin/deno
 WORKDIR /app
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
-COPY app.py cache.py ./
-COPY static static
+COPY notes notes
+COPY web web
 
 # /data chứa cache audio + token Google -> mount volume để không mất khi build lại
 ENV CACHE_DIR=/data/cache \
@@ -20,4 +20,4 @@ ENV CACHE_DIR=/data/cache \
     PYTHONUNBUFFERED=1
 VOLUME /data
 EXPOSE 8000
-CMD ["python", "app.py"]
+CMD ["python", "-m", "notes"]

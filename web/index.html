@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#fbf1e6">
+<title>Notes</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 120'><circle cx='28' cy='30' r='18' fill='%23c98657'/><circle cx='92' cy='30' r='18' fill='%23c98657'/><ellipse cx='60' cy='66' rx='46' ry='42' fill='%23d9a072'/><ellipse cx='60' cy='80' rx='20' ry='15' fill='%23f7dfc6'/><ellipse cx='60' cy='73' rx='7' ry='5' fill='%235a3a2a'/><circle cx='42' cy='58' r='5' fill='%233d2418'/><circle cx='78' cy='58' r='5' fill='%233d2418'/></svg>">
+<script src="/js/theme.js"></script>
+<link rel="stylesheet" href="/themes/index.css">
+<link rel="stylesheet" href="/css/app.css">
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute">
+  <defs>
+    <symbol id="i-play" viewBox="0 0 24 24"><path d="M8 5.14v13.72a1 1 0 0 0 1.5.86l11.04-6.86a1 1 0 0 0 0-1.72L9.5 4.28A1 1 0 0 0 8 5.14z"/></symbol>
+    <symbol id="i-pause" viewBox="0 0 24 24"><path d="M7 4h3.5v16H7zM13.5 4H17v16h-3.5z"/></symbol>
+    <symbol id="i-next" viewBox="0 0 24 24"><path d="M5 5.5v13a1 1 0 0 0 1.55.83L15 13.6V18a1 1 0 0 0 1 1h1a1 1 0 0 0 1-1V6a1 1 0 0 0-1-1h-1a1 1 0 0 0-1 1v4.4L6.55 4.67A1 1 0 0 0 5 5.5z"/></symbol>
+    <symbol id="i-prev" viewBox="0 0 24 24"><path d="M19 5.5v13a1 1 0 0 1-1.55.83L9 13.6V18a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h1a1 1 0 0 1 1 1v4.4l8.45-5.73A1 1 0 0 1 19 5.5z"/></symbol>
+    <symbol id="i-shuffle" viewBox="0 0 24 24"><path d="M17 3l4 4-4 4V8h-2.6l-3.1 4 3.1 4H17v-3l4 4-4 4v-3h-3.6l-3.6-4.7L6.2 18H3v-2h2.2l3.1-4-3.1-4H3V6h3.2l3.6 4.7L13.4 6H17z"/></symbol>
+    <symbol id="i-repeat" viewBox="0 0 24 24"><path d="M7 7h10v3l4-4-4-4v3H5v6h2zm10 10H7v-3l-4 4 4 4v-3h12v-6h-2z"/></symbol>
+    <symbol id="i-vol" viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9zm13.5 3A4.5 4.5 0 0 0 14 8v8a4.47 4.47 0 0 0 2.5-4zM14 3.23v2.06a7 7 0 0 1 0 13.42v2.06A9 9 0 0 0 14 3.23z"/></symbol>
+    <symbol id="i-mute" viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9zm18.7 1.3-1.4-1.4L18 11.17l-2.3-2.3-1.4 1.42L16.6 12.6l-2.3 2.3 1.4 1.4 2.3-2.3 2.3 2.3 1.4-1.4-2.3-2.3z"/></symbol>
+    <symbol id="i-queue" viewBox="0 0 24 24"><path d="M3 6h13v2H3zm0 5h13v2H3zm0 5h8v2H3zm12 0 6-3.5v7z"/></symbol>
+    <symbol id="i-home" viewBox="0 0 24 24"><path d="M12 3 2 11h3v9h6v-6h2v6h6v-9h3z"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><path d="M10.5 3a7.5 7.5 0 0 1 5.96 12.05l4.25 4.24-1.42 1.42-4.24-4.25A7.5 7.5 0 1 1 10.5 3zm0 2a5.5 5.5 0 1 0 0 11 5.5 5.5 0 0 0 0-11z"/></symbol>
+    <symbol id="i-heart" viewBox="0 0 24 24"><path d="M12 21s-7.5-4.6-9.6-9.3C.9 8.4 3 4.5 6.8 4.5c2.1 0 3.6 1.1 4.6 2.6.2.3.6.3.8 0 1-1.5 2.5-2.6 4.6-2.6 3.8 0 5.9 3.9 4.4 7.2C19.5 16.4 12 21 12 21z"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><path d="M11 5h2v6h6v2h-6v6h-2v-6H5v-2h6z"/></symbol>
+    <symbol id="i-playnext" viewBox="0 0 24 24"><path d="M3 6h12v2H3zm0 5h12v2H3zm0 5h7v2H3zm14-3h-2v3h-3v2h3v3h2v-3h3v-2h-3z"/></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24"><path d="m6.4 5 5.6 5.6L17.6 5 19 6.4 13.4 12l5.6 5.6-1.4 1.4-5.6-5.6L6.4 19 5 17.6l5.6-5.6L5 6.4z"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></symbol>
+    <symbol id="i-logout" viewBox="0 0 24 24"><path d="M10 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h5v-2H5V5h5zm6.6 4.4L15.2 8.8 17.4 11H9v2h8.4l-2.2 2.2 1.4 1.4L21.2 12z"/></symbol>
+    <symbol id="i-refresh" viewBox="0 0 24 24"><path d="M17.65 6.35A7.96 7.96 0 0 0 12 4a8 8 0 1 0 7.73 10h-2.08A6 6 0 1 1 12 6c1.66 0 3.14.69 4.22 1.78L13 11h7V4z"/></symbol>
+    <symbol id="i-music" viewBox="0 0 24 24"><path d="M9 18.5a3.5 3.5 0 1 1-2-3.16V5l12-2v12.5a3.5 3.5 0 1 1-2-3.16V6.36L9 7.7z"/></symbol>
+    <symbol id="i-down" viewBox="0 0 24 24"><path d="M7.4 8.6 12 13.2l4.6-4.6L18 10l-6 6-6-6z"/></symbol>
+    <symbol id="i-list" viewBox="0 0 24 24"><path d="M4 5h16v2H4zm0 6h16v2H4zm0 6h10v2H4z"/></symbol>
+    <symbol id="i-heart-o" viewBox="0 0 24 24"><path d="M16.5 4.5c-1.9 0-3.4.9-4.5 2.3-1.1-1.4-2.6-2.3-4.5-2.3C4.4 4.5 2 6.9 2 10c0 4.6 5.4 8.4 9.4 11a1 1 0 0 0 1.2 0c4-2.6 9.4-6.4 9.4-11 0-3.1-2.4-5.5-5.5-5.5zM12 19c-3.7-2.5-8-5.8-8-9 0-2 1.5-3.5 3.5-3.5 1.6 0 2.7 1 3.6 2.4a1 1 0 0 0 1.8 0c.9-1.4 2-2.4 3.6-2.4 2 0 3.5 1.5 3.5 3.5 0 3.2-4.3 6.5-8 9z"/></symbol>
+    <symbol id="i-thumbdown" viewBox="0 0 24 24"><path d="M15 3H6c-.83 0-1.54.5-1.84 1.22l-3.02 7.05c-.09.23-.14.47-.14.73v2c0 1.1.9 2 2 2h6.31l-.95 4.57-.03.32c0 .41.17.79.44 1.06L9.83 23l6.59-6.59c.36-.36.58-.86.58-1.41V5c0-1.1-.9-2-2-2zm4 0v12h4V3h-4z"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24"><path d="M12.3 2a10 10 0 1 0 9.7 12.5A8 8 0 0 1 12.3 2z"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><path d="M12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10zM11 1h2v3h-2zm0 19h2v3h-2zM1 11h3v2H1zm19 0h3v2h-3zM4.2 5.6l1.4-1.4 2.1 2.1-1.4 1.4zm12.1 12.1 1.4-1.4 2.1 2.1-1.4 1.4zM4.2 18.4l2.1-2.1 1.4 1.4-2.1 2.1zM16.3 6.3l2.1-2.1 1.4 1.4-2.1 2.1z"/></symbol>
+    <symbol id="i-sparkle" viewBox="0 0 24 24"><path d="M12 2l2.2 6.3L20.5 10l-6.3 2.2L12 18.5l-2.2-6.3L3.5 10l6.3-1.7zM19 15l1 2.8 2.8 1-2.8 1L19 22.6l-1-2.8-2.8-1 2.8-1z"/></symbol>
+    <!-- gấu bông -->
+    <symbol id="i-bear" viewBox="0 0 120 120">
+      <circle cx="28" cy="30" r="18" fill="#c98657"/><circle cx="92" cy="30" r="18" fill="#c98657"/>
+      <circle cx="28" cy="30" r="9" fill="#f6c9a6"/><circle cx="92" cy="30" r="9" fill="#f6c9a6"/>
+      <ellipse cx="60" cy="66" rx="46" ry="42" fill="#d9a072"/>
+      <ellipse cx="60" cy="81" rx="21" ry="16" fill="#f7dfc6"/>
+      <ellipse cx="60" cy="73" rx="7" ry="5" fill="#5a3a2a"/>
+      <path d="M60 78q0 6-6 7M60 78q0 6 6 7" stroke="#5a3a2a" stroke-width="2.6" fill="none" stroke-linecap="round"/>
+      <circle cx="42" cy="58" r="5.5" fill="#3d2418"/><circle cx="78" cy="58" r="5.5" fill="#3d2418"/>
+      <circle cx="44" cy="56" r="1.8" fill="#fff"/><circle cx="80" cy="56" r="1.8" fill="#fff"/>
+      <ellipse cx="32" cy="74" rx="8" ry="5" fill="#ff8fab" opacity=".55"/><ellipse cx="88" cy="74" rx="8" ry="5" fill="#ff8fab" opacity=".55"/>
+    </symbol>
+  </defs>
+</svg>
+
+<div class="app" id="app">
+  <!-- ===== sidebar ===== -->
+  <aside class="side" id="side">
+    <div class="brand"><img src="/img/fluent/teddy_bear_3d.png" alt=""><div>Notes<small>nghe nhạc cùng gấu</small></div></div>
+    <nav class="nav">
+      <button data-nav="home"><svg class="i"><use href="#i-home"/></svg>Trang chủ</button>
+      <button data-nav="search"><svg class="i"><use href="#i-search"/></svg>Tìm kiếm</button>
+      <button data-nav="queue"><svg class="i"><use href="#i-queue"/></svg>Hàng đợi <span id="qcount" style="margin-left:auto;font-weight:700"></span></button>
+    </nav>
+    <h4>Thư viện <button id="refreshLists" title="Tải lại playlist"><svg class="i" style="width:16px;height:16px"><use href="#i-refresh"/></svg></button></h4>
+    <div class="pl-scroll" id="plList"></div>
+    <!-- gấu linh vật chibi: nhảy khi phát nhạc, ngủ khi dừng -->
+    <div class="mascot" title="Gấu đang nghe cùng bạn">
+      <div class="mascot-art"><img class="m-dance" src="/img/bear_dance.webp" alt=""><img class="m-sleep" src="/img/bear_sleep.webp" alt=""></div>
+      <div style="min-width:0"><b id="mascotTitle">Gấu đang ngủ…</b><span id="mascotSub">Bấm phát để đánh thức gấu nha</span></div>
+    </div>
+    <div class="user">
+      <div class="avatar" id="avatar">?</div>
+      <div class="em" id="me"></div>
+      <button class="icon-btn" id="themeBtn" title="Đổi giao diện sữa / cacao"><svg class="i"><use href="#i-moon"/></svg></button>
+      <a class="icon-btn" href="/auth/logout" title="Đăng xuất"><svg class="i"><use href="#i-logout"/></svg></a>
+    </div>
+  </aside>
+  <div class="scrim" id="scrim"></div>
+
+  <!-- ===== main ===== -->
+  <main class="main">
+    <div class="topbar">
+      <button class="icon-btn menu-btn" id="menuBtn" title="Menu"><svg class="i"><use href="#i-menu"/></svg></button>
+      <div class="search">
+        <svg class="i"><use href="#i-search"/></svg>
+        <input id="q" placeholder="Tìm bài hát, nghệ sĩ hoặc dán link YouTube…" autocomplete="off" enterkeyhint="search">
+        <button class="icon-btn clear" id="clearQ" hidden title="Xoá"><svg class="i" style="width:16px;height:16px"><use href="#i-x"/></svg></button>
+      </div>
+      <div class="top-deco" aria-hidden="true">
+        <img class="emo" src="/img/fluent/cherry_blossom_3d.png" width="26" height="26" alt="">
+        <img class="emo" src="/img/fluent/teddy_bear_3d.png" width="32" height="32" alt="">
+        <img class="emo" src="/img/fluent/glowing_star_3d.png" width="24" height="24" alt="">
+      </div>
+    </div>
+    <div class="scroll" id="view"></div>
+  </main>
+
+  <!-- ===== queue ===== -->
+  <aside class="queue" id="queuePanel" hidden>
+    <header>Hàng đợi
+      <div style="display:flex;gap:4px">
+        <button class="icon-btn" id="clearQueue" title="Xoá các bài tiếp theo"><svg class="i"><use href="#i-list"/></svg></button>
+        <button class="icon-btn" id="closeQueue" title="Đóng"><svg class="i"><use href="#i-x"/></svg></button>
+      </div>
+    </header>
+    <div class="scroll" id="queueList"></div>
+  </aside>
+
+  <!-- ===== player ===== -->
+  <footer class="player paused" id="player">
+    <div class="mini-prog"><i id="miniProg"></i></div>
+    <button class="icon-btn collapse" id="collapseBtn" title="Thu nhỏ"><svg class="i"><use href="#i-down"/></svg></button>
+    <div class="np" id="np">
+      <div class="cov-wrap"><div class="cov empty" id="npCover"><svg class="i"><use href="#i-music"/></svg></div></div>
+      <div style="min-width:0;flex:1">
+        <div class="t" id="npTitle">Chưa phát bài nào</div>
+        <div class="a" id="npArtist">Chọn một bài để bắt đầu nha 🧸</div>
+      </div>
+      <div class="np-acts">
+        <button class="icon-btn" id="likeBtn" title="Thích (L) – gấu sẽ gợi ý bài giống vầy nhiều hơn"><svg class="i"><use href="#i-heart-o"/></svg></button>
+        <button class="icon-btn" id="dislikeBtn" title="Không thích – bỏ qua và không gợi ý lại"><svg class="i"><use href="#i-thumbdown"/></svg></button>
+      </div>
+    </div>
+    <div class="center">
+      <div class="ctrls">
+        <button class="icon-btn" id="shuffleBtn" title="Trộn bài (S)"><svg class="i"><use href="#i-shuffle"/></svg></button>
+        <button class="icon-btn" id="prevBtn" title="Bài trước"><svg class="i"><use href="#i-prev"/></svg></button>
+        <button class="play-btn" id="playBtn" title="Phát / Tạm dừng (Space)"><svg class="i"><use href="#i-play"/></svg></button>
+        <button class="icon-btn" id="nextBtn" title="Bài tiếp"><svg class="i"><use href="#i-next"/></svg></button>
+        <button class="icon-btn" id="repeatBtn" title="Lặp lại (R)"><svg class="i"><use href="#i-repeat"/></svg></button>
+      </div>
+      <div class="seek">
+        <span id="tCur">0:00</span>
+        <input type="range" id="seek" min="0" max="1000" value="0" step="1" aria-label="Tua">
+        <span id="tDur">0:00</span>
+      </div>
+    </div>
+    <div class="right">
+      <button class="icon-btn" id="queueBtn" title="Hàng đợi (Q)"><svg class="i"><use href="#i-queue"/></svg></button>
+      <button class="icon-btn" id="muteBtn" title="Tắt tiếng (M)"><svg class="i"><use href="#i-vol"/></svg></button>
+      <input type="range" class="vol" id="vol" min="0" max="100" value="80" aria-label="Âm lượng">
+    </div>
+  </footer>
+</div>
+<div class="toast" id="toast"></div>
+<audio id="audio" preload="auto"></audio>
+
+<script src="/js/app.js"></script>
+</body>
+</html>

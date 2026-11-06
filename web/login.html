@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#fbf1e6">
+<title>Đăng nhập · Notes</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 120'><circle cx='28' cy='30' r='18' fill='%23c98657'/><circle cx='92' cy='30' r='18' fill='%23c98657'/><ellipse cx='60' cy='66' rx='46' ry='42' fill='%23d9a072'/><ellipse cx='60' cy='80' rx='20' ry='15' fill='%23f7dfc6'/><ellipse cx='60' cy='73' rx='7' ry='5' fill='%235a3a2a'/><circle cx='42' cy='58' r='5' fill='%233d2418'/><circle cx='78' cy='58' r='5' fill='%233d2418'/></svg>">
+<script src="/js/theme.js"></script>
+<link rel="stylesheet" href="/themes/index.css">
+<link rel="stylesheet" href="/css/login.css">
+</head>
+<body>
+<div class="box">
+  <div class="bear" id="bear"><img class="b-wave" src="/img/bear_wave.webp" alt=""><img class="b-shy" src="/img/bear_sleep.webp" alt=""></div>
+  <h1>Notes</h1>
+  <p>Đăng nhập để nghe playlist YouTube cùng gấu nha 🎧</p>
+  <a class="btn" href="/auth/login">
+    <svg width="18" height="18" viewBox="0 0 48 48"><path fill="#EA4335" d="M24 9.5c3.5 0 6.6 1.2 9.1 3.6l6.8-6.8C35.8 2.4 30.3 0 24 0 14.6 0 6.6 5.4 2.7 13.2l7.9 6.2C12.5 13.6 17.8 9.5 24 9.5z"/><path fill="#4285F4" d="M46.5 24.5c0-1.6-.1-3.1-.4-4.5H24v9h12.7c-.6 2.9-2.2 5.4-4.7 7.1l7.6 5.9c4.4-4.1 6.9-10.1 6.9-17.5z"/><path fill="#FBBC05" d="M10.6 28.6A14.5 14.5 0 0 1 9.5 24c0-1.6.3-3.2.8-4.6l-7.9-6.2A24 24 0 0 0 0 24c0 3.9.9 7.5 2.6 10.8l8-6.2z"/><path fill="#34A853" d="M24 48c6.5 0 11.9-2.1 15.9-5.8l-7.6-5.9c-2.1 1.4-4.9 2.3-8.3 2.3-6.2 0-11.5-4.1-13.4-9.8l-8 6.2C6.6 42.6 14.6 48 24 48z"/></svg>
+    Đăng nhập bằng Google
+  </a>
+  <form method="post" action="/auth/password" class="pw">
+    <div class="sep">hoặc</div>
+    <input type="password" name="password" placeholder="Mật khẩu bí mật 🤫" required>
+    <button>Vào</button>
+  </form>
+  <div class="err" id="err"></div>
+  <div class="hint" id="hint"></div>
+  <div class="paws">🐾 🐾 🐾</div>
+</div>
+<img class="deco" src="/img/fluent/cherry_blossom_3d.png" style="top:8%;left:8%" alt="">
+<img class="deco" src="/img/fluent/musical_notes_3d.png" style="top:16%;right:10%;animation-delay:-1s" alt="">
+<img class="deco" src="/img/fluent/honey_pot_3d.png" style="bottom:12%;left:12%;animation-delay:-2s" alt="">
+<img class="deco" src="/img/fluent/sparkling_heart_3d.png" style="bottom:18%;right:9%;animation-delay:-3s" alt="">
+<script src="/js/login.js"></script>
+</body>
+</html>
