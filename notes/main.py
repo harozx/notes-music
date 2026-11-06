@@ -46,7 +46,7 @@ async def require_login(request: Request, call_next):
 
 
 # SessionMiddleware thêm sau nên chạy bọc ngoài require_login.
-# - Tên cookie riêng (notes_session): tránh đụng cookie "session" của web khác cùng domain (*.youv.dev)
+# - Tên cookie riêng (notes_session): tránh đụng cookie "session" của web khác cùng domain
 #   -> trình duyệt gửi 2 cookie trùng tên, server đọc nhầm cái kia và coi như chưa đăng nhập.
 # - Phiên trượt: mỗi response đều gia hạn cookie thêm SESSION_DAYS ngày.
 app.add_middleware(SessionMiddleware, secret_key=SESSION_SECRET, session_cookie=SESSION_COOKIE,

@@ -40,7 +40,7 @@ EOF
 
 cat > "$UNIT_DIR/notes-tunnel.service" <<EOF
 [Unit]
-Description=Notes - Cloudflare Tunnel (notes.youv.dev)
+Description=Notes - Cloudflare Tunnel
 After=notes-music.service network-online.target
 Wants=notes-music.service network-online.target
 
